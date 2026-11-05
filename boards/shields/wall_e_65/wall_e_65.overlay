@@ -7,6 +7,13 @@
         zmk,physical-layout = &physical_layout0;
     };
 
+    /* Nodo Caps Lock LED del modulo petejohanson */
+    caps_lock_led {
+        compatible = "zmk,caps-lock-led";
+        label = "Caps Lock LED";
+        gpio = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+    };
+
     /* Matrice Elettrica Hardware (Pin nativi nRF52840) */
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
