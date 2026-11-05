@@ -20,7 +20,7 @@
 
         /* CASSAFORTE A 4 TASTI:
            FN SX (59) + AltGr (62) + FN DX (63) + Ctrl DX (64)
-           Attiva il Livello 2 (Amministrazione Bluetooth) */
+           Attiva il Livello 2 (Amministrazione Bluetooth e ZMK Studio) */
         combo_admin_layer {
             timeout-ms = <150>;
             key-positions = <59 62 63 64>;
@@ -63,13 +63,13 @@
             >;
         };
 
-        /* LIVELLO 2: Cassaforte di Sistema (Bluetooth) */
+        /* LIVELLO 2: Cassaforte di Sistema (Bluetooth + ZMK Studio Unlock) */
         admin_layer {
             bindings = <
                 /* ESC = Reset totale BT | 1-5 = Scelta Profilo */
                 &bt BT_CLR_ALL &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none &none &none &none &none &none &none &none &none
-                /* TAB = Commuta Cavo ⇄ Bluetooth | CANC = Cancella Profilo Attivo */
-                &out OUT_TOG   &none        &none        &none        &none        &none        &none &none &none &none &none &none &none &none &bt BT_CLR
+                /* TAB = Commuta Cavo ⇄ Bluetooth | INVIO = Sblocco ZMK Studio | CANC = Cancella Profilo */
+                &out OUT_TOG   &none        &none        &none        &none        &none        &none &none &none &none &none &none &none &studio_unlock &bt BT_CLR
                 /* Fila 2 */
                 &none          &none        &none        &none        &none        &none        &none &none &none &none &none &none &none       &none
                 /* Fila 3 */
