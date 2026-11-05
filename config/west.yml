@@ -2,18 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: petejohanson
-      url-base:  https://github.com/infused-kim
+    - name: ssbb
+      url-base: https://github.com/ssbb
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: v0.3
       import: app/west.yml
-    - name: zmk-hid-indicators
-      remote: infused-kim
-      revision: main
+    - name: zmk-listeners
+      remote: ssbb
+      revision: v1
   self:
     path: config
-
-
-
