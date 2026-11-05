@@ -1,0 +1,6 @@
+if SHIELD_WALL_E_65
+
+config ZMK_KEYBOARD_NAME
+    default "WALL-E 65"
+
+endif
