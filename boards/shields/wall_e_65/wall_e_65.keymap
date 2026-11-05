@@ -12,7 +12,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp PSCRN>, <&kp PAUSE_BREAK>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -64,7 +64,7 @@
             >;
         };
 
-        /* LIVELLO 2: Cassaforte di Sistema (Bluetooth + ZMK Studio Unlock) */
+        /* LIVELLO 2: Cassaforte di Sistema (Bluetooth + Sblocco Studio) */
         admin_layer {
             bindings = <
                 /* ESC = Reset totale BT | 1-5 = Scelta Profilo */
