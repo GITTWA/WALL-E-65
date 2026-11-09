@@ -83,6 +83,16 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        /* Muto / Ins (3° tasto colonna destra):
+           - Da solo = MUTO (toggle audio on/off)
+           - Con SHIFT = INS */
+        mute_ins: mute_ins {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp C_MUTE>, <&kp INS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
         /* Tasto < >:
            - Da solo = < (con Shift = >)
            - Con Ctrl SX o DX = \
@@ -128,8 +138,8 @@
                 &kp ESC    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS  &kp EQUAL  &kp BSPC   &stamp_pause
                 /* Fila 1 */
                 &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT   &kp RBKT   &kp RET    &kp DEL
-                /* Fila 2 */
-                &kp CLCK   &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT    &kp BSLH              &kp INS
+                /* Fila 2: Il 3° tasto a destra è ora mute_ins */
+                &kp CLCK   &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT    &kp BSLH              &mute_ins
                 /* Fila 3: iso_slash gestisce <, >, \ e | */
                 &kp LSHFT  &iso_slash        &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT    &kp FSLH   &kp RSHFT  &kp UP
                 /* Fila 4 */
