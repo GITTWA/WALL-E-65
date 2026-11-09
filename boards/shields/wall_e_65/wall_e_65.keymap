@@ -15,6 +15,74 @@
         };
     };
 
+    /* Macro per le lettere maiuscole accentate Windows */
+    macros {
+        /* È (Alt + 0200) - Riconosciuta da Word senza errori */
+        m_e_maj: m_e_maj {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N0>
+                , <&macro_release &kp LALT>
+                ;
+        };
+
+        /* À (Alt + 0192) */
+        m_a_maj: m_a_maj {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N2>
+                , <&macro_release &kp LALT>
+                ;
+        };
+
+        /* Ò (Alt + 0210) */
+        m_o_maj: m_o_maj {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N1 &kp KP_N0>
+                , <&macro_release &kp LALT>
+                ;
+        };
+
+        /* Ù (Alt + 0217) */
+        m_u_maj: m_u_maj {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N1 &kp KP_N7>
+                , <&macro_release &kp LALT>
+                ;
+        };
+
+        /* Ì (Alt + 0204) */
+        m_i_maj: m_i_maj {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N4>
+                , <&macro_release &kp LALT>
+                ;
+        };
+    };
+
     behaviors {
         /* Stamp premuto normalmente = STAMP
            Stamp premuto con SHIFT = PAUSA */
@@ -34,6 +102,16 @@
             #binding-cells = <0>;
             bindings = <&kp NON_US_BSLH>, <&kp GRAVE>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
+        /* Tap-Dance sul tasto ì (su Layer FN):
+           - 1 tocco = Ì (maiuscola accentata)
+           - 2 tocchi rapidi = F12 */
+        td_i_f12: td_i_f12 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&m_i_maj>, <&kp F12>;
         };
     };
 
@@ -69,15 +147,15 @@
             >;
         };
 
-        /* LIVELLO 1: FN Layer (Frecce -> Navigazione, Numeri -> F1-F12) */
+        /* LIVELLO 1: FN Layer (Vocali maiuscole, Frecce -> Navigazione, F1-F11 + TapDance F12) */
         fn_layer {
             bindings = <
-                /* Fila 0: F1-F12 */
-                &trans     &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11    &kp F12    &trans     &trans
-                /* Fila 1 */
-                &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans     &trans     &trans     &trans
-                /* Fila 2 */
-                &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans     &trans                &trans
+                /* Fila 0: F1-F11 + (1 tap = Ì, 2 tap = F12) */
+                &trans     &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11    &td_i_f12  &trans     &trans
+                /* Fila 1: Tasto è diventa È */
+                &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &m_e_maj   &trans     &trans     &trans
+                /* Fila 2: Tasti ò, à, ù diventano Ò, À, Ù */
+                &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &m_o_maj  &m_a_maj   &m_u_maj              &trans
                 /* Fila 3 */
                 &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans     &trans     &kp PG_UP
                 /* Fila 4: Frecce -> Navigazione */
