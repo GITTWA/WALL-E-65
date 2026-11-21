@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/modifiers.h>
+#include <behaviors/caps_acc.dtsi>
 
 / {
     /* Macro per le lettere maiuscole accentate Windows */
@@ -135,11 +136,11 @@
         default_layer {
             bindings = <
                 /* Fila 0 */
-                &kp ESC    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS  &kp EQUAL  &kp BSPC   &stamp_pause
+                &kp ESC    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS  &it_i      &kp BSPC   &stamp_pause
                 /* Fila 1 */
-                &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT   &kp RBKT   &kp RET    &kp DEL
+                &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P     &it_e      &kp RBKT   &kp RET    &kp DEL
                 /* Fila 2: Il 3° tasto a destra è ora mute_ins */
-                &kp CLCK   &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT    &kp BSLH              &mute_ins
+                &kp CLCK   &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &it_o     &it_a      &it_u                 &mute_ins
                 /* Fila 3: iso_slash gestisce <, >, \ e | */
                 &kp LSHFT  &iso_slash        &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT    &kp FSLH   &kp RSHFT  &kp UP
                 /* Fila 4 */
