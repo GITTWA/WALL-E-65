@@ -96,13 +96,13 @@
 
         /* Tasto < >:
            - Da solo = < (con Shift = >)
-           - Con Ctrl SX o DX = \
-           - Con Ctrl + Shift = | */
+           - Con AltGr = \
+           - Con AltGr + Shift = | */
         iso_slash: iso_slash {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp NON_US_BSLH>, <&kp GRAVE>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
+            mods = <(MOD_RALT)>;
         };
 
         /* Tap-Dance sul tasto ì (su Layer FN):
