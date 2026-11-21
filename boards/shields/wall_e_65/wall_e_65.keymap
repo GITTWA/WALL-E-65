@@ -83,9 +83,9 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /* Muto / Ins (3° tasto colonna destra):
-           - Da solo = MUTO (toggle audio on/off)
-           - Con SHIFT = INS */
+        /* Tasto MUTO / INS:
+           - Da solo = Muto Audio
+           - Con SHIFT = Tasto INS */
         mute_ins: mute_ins {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -95,13 +95,13 @@
 
         /* Tasto < >:
            - Da solo = < (con Shift = >)
-           - Con Ctrl SX o DX = \
-           - Con Ctrl + Shift = | */
+           - Con AltGr (Alt di destra) = \
+           - Con AltGr + Shift = | */
         iso_slash: iso_slash {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp NON_US_BSLH>, <&kp GRAVE>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
+            mods = <(MOD_RALT)>;
         };
 
         /* Tap-Dance sul tasto ì (su Layer FN):
@@ -138,19 +138,19 @@
                 &kp ESC    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS  &kp EQUAL  &kp BSPC   &stamp_pause
                 /* Fila 1 */
                 &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT   &kp RBKT   &kp RET    &kp DEL
-                /* Fila 2: Il 3° tasto a destra è ora mute_ins */
+                /* Fila 2 */
                 &kp CLCK   &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT    &kp BSLH              &mute_ins
-                /* Fila 3: iso_slash gestisce <, >, \ e | */
+                /* Fila 3: iso_slash con AltGr per \ e | */
                 &kp LSHFT  &iso_slash        &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT    &kp FSLH   &kp RSHFT  &kp UP
                 /* Fila 4 */
                 &kp LCTRL  &mo 1     &kp LALT                      &kp SPACE                     &kp RALT  &mo 1     &kp RCTRL &kp LEFT   &kp DOWN   &kp RIGHT
             >;
         };
 
-        /* LIVELLO 1: FN Layer (Vocali maiuscole, Frecce -> Navigazione, F1-F11 + TapDance F12) */
+        /* LIVELLO 1: FN Layer (Frecce -> Navigazione, F1-F11 + TapDance F12, Maiuscole accentate con FN) */
         fn_layer {
             bindings = <
-                /* Fila 0: F1-F11 + (1 tap = Ì, 2 tap = F12) */
+                /* Fila 0: F1-F11 + TapDance F12 */
                 &trans     &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11    &td_i_f12  &trans     &trans
                 /* Fila 1: Tasto è diventa È */
                 &trans     &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &m_e_maj   &trans     &trans     &trans
