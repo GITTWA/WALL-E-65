@@ -1,3 +1,6 @@
+name: zmk-behavior-caps-acc
 build:
+  cmake: .
+  kconfig: Kconfig
   settings:
-    board_root: .
+    dts_root: .
